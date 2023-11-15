@@ -92,6 +92,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
 
         } else if (value == 2) {
+          /* working code of Q2 (Nov 11)
             rightFront.setPower(-0.4);
             rightRear.setPower(0.4);
             leftFront.setPower(0.4);
@@ -110,12 +111,37 @@ public class OpenCVBlueLeft extends LinearOpMode {
             Drivetrain.encoderStrafe(69);
             sleep(1000);
             Drivetrain.encoderForward(-30);
+            sleep(1000); */
+
+
+            /* New Pushing Code */
+            rightFront.setPower(-0.2);
+            rightRear.setPower(0.2);
+            leftFront.setPower(0.2);
+            leftRear.setPower(-0.2);
+            Drivetrain.encoderForward(41);
+            sleep(1000);
+            Drivetrain.encoderStrafe(69);
+            sleep(1000);
+            Drivetrain.encoderTurn(270);
+            sleep(1000);
+            Drivetrain.encoderStrafe(17);
+            sleep(1000);
+            Arm.wristMid();
+            sleep(500);
+            Arm.openClaw();
+            sleep(500);
+            Arm.wristUp();
+            sleep(500);
+            Drivetrain.encoderForward(-3);
+            Drivetrain.encoderStrafe(43);
             sleep(1000);
 
 
 
         } else if (value == 3) {
 
+            /* working code of Q2 = Nov 11
             Drivetrain.encoderForward(28);
             sleep(1000);
             Drivetrain.encoderTurn(-135);
@@ -133,6 +159,27 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(-27.5);
             sleep(1000);
+
+*/
+            //New Code for pushing pixel
+
+
+            Drivetrain.encoderForward(32);
+            sleep(1000);
+            Drivetrain.encoderTurn(-270);
+            sleep(1000);
+            Drivetrain.encoderTurn(540);
+            sleep(1000);
+            Drivetrain.encoderForward(75);
+            Arm.wristMid();
+            sleep(1000);
+            Arm.openClaw();
+            sleep(1000);
+            Arm.wristUp();
+            sleep(1000);
+            Drivetrain.encoderStrafe(30);
+            sleep(1000);
+
         }
 
         //Drivetrain.encoderForward(13);
