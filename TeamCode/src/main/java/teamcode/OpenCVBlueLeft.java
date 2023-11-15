@@ -74,7 +74,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
             Drivetrain.encoderForward(27);
             sleep(1000);
-            Drivetrain.encoderTurn(135);
+            Drivetrain.encoderHalfTurn(135);
             sleep(1000);
             Arm.wristLow();
             sleep(1000);
@@ -83,7 +83,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
             Arm.wristUp();
             sleep(1000);
-            Drivetrain.encoderTurn(-135);
+            Drivetrain.encoderHalfTurn(-135);
             sleep(1000);
             Drivetrain.encoderStrafe(70);
             sleep(1000);
@@ -164,18 +164,23 @@ public class OpenCVBlueLeft extends LinearOpMode {
             //New Code for pushing pixel
 
 
-            Drivetrain.encoderForward(32);
+            Drivetrain.encoderForward(27);
+            Drivetrain.encoderHalfTurn(290);
             sleep(1000);
-            Drivetrain.encoderTurn(-270);
+            Drivetrain.encoderForward(7);
+            Drivetrain.encoderForward(-10);
+            Drivetrain.encoderTurn(420);
             sleep(1000);
-            Drivetrain.encoderTurn(540);
-            sleep(1000);
-            Drivetrain.encoderForward(75);
+            Drivetrain.encoderForward(60);
+            sleep(500);
+            Drivetrain.encoderStrafe(-15);
             Arm.wristMid();
             sleep(1000);
             Arm.openClaw();
             sleep(1000);
             Arm.wristUp();
+            sleep(1000);
+            Drivetrain.encoderForward(-8);
             sleep(1000);
             Drivetrain.encoderStrafe(30);
             sleep(1000);
