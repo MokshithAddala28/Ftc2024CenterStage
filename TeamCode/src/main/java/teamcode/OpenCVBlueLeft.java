@@ -161,27 +161,23 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
 
 */
-            /* New Pushing Code */
-            rightFront.setPower(-0.2);
-            rightRear.setPower(0.2);
-            leftFront.setPower(0.2);
-            leftRear.setPower(-0.2);
-            Drivetrain.encoderForward(41);
+            //New Code for pushing pixel
+
+
+            Drivetrain.encoderForward(32);
             sleep(1000);
-            Drivetrain.encoderStrafe(69);
+            Drivetrain.encoderTurn(-270);
             sleep(1000);
-            Drivetrain.encoderTurn(270);
+            Drivetrain.encoderTurn(540);
             sleep(1000);
-            Drivetrain.encoderStrafe(17);
-            sleep(1000);
+            Drivetrain.encoderForward(75);
             Arm.wristMid();
-            sleep(500);
+            sleep(1000);
             Arm.openClaw();
-            sleep(500);
+            sleep(1000);
             Arm.wristUp();
-            sleep(500);
-            Drivetrain.encoderForward(-3);
-            Drivetrain.encoderStrafe(43);
+            sleep(1000);
+            Drivetrain.encoderStrafe(30);
             sleep(1000);
 
         }
