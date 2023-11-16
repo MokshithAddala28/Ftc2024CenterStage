@@ -71,10 +71,11 @@ public class OpenCVBlueLeft extends LinearOpMode {
         waitForStart();
 
         if (value == 1) {
-
+            /*
+            //code from nov 11 Q2
             Drivetrain.encoderForward(27);
             sleep(1000);
-            Drivetrain.encoderHalfTurn(135);
+            Drivetrain.encoderTurn(135);
             sleep(1000);
             Arm.wristLow();
             sleep(1000);
@@ -83,11 +84,35 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
             Arm.wristUp();
             sleep(1000);
-            Drivetrain.encoderHalfTurn(-135);
+            Drivetrain.encoderTurn(-135);
             sleep(1000);
             Drivetrain.encoderStrafe(70);
             sleep(1000);
             Drivetrain.encoderForward(-25);
+            sleep(1000);
+             */
+
+            Drivetrain.encoderForward(27);
+            Drivetrain.encoderHalfTurn(-290);
+            sleep(1000);
+            Drivetrain.encoderForward(7);
+            sleep(500);
+            Drivetrain.encoderForward(-10);
+            sleep(500);
+            Drivetrain.encoderTurn(135);
+            sleep(1000);
+            Drivetrain.encoderForward(40);
+            sleep(500);
+            Drivetrain.encoderStrafe(10);
+            Arm.wristMid();
+            sleep(1000);
+            Arm.openClaw();
+            sleep(1000);
+            Arm.wristUp();
+            sleep(1000);
+            Drivetrain.encoderForward(-8);
+            sleep(1000);
+            Drivetrain.encoderStrafe(20);
             sleep(1000);
 
 
