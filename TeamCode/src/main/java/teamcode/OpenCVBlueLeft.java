@@ -93,15 +93,15 @@ public class OpenCVBlueLeft extends LinearOpMode {
              */
 
             Drivetrain.encoderForward(27);
-            Drivetrain.encoderHalfTurn(-290);
+            Drivetrain.encoderHalfTurnLeft(290);
             sleep(1000);
-            Drivetrain.encoderForward(7);
+            Drivetrain.encoderForward(9.5);
             sleep(500);
             Drivetrain.encoderForward(-10);
             sleep(500);
             Drivetrain.encoderTurn(135);
             sleep(1000);
-            Drivetrain.encoderForward(40);
+            Drivetrain.encoderForward(57);
             sleep(500);
             Drivetrain.encoderStrafe(10);
             Arm.wristMid();
@@ -190,7 +190,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
 
             Drivetrain.encoderForward(27);
-            Drivetrain.encoderHalfTurn(290);
+            Drivetrain.encoderHalfTurnRight(290);
             sleep(1000);
             Drivetrain.encoderForward(7);
             Drivetrain.encoderForward(-10);

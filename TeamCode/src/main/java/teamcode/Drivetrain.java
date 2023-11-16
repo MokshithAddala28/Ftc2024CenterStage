@@ -81,9 +81,14 @@ public class Drivetrain {
         rightFront.setPower(power);
         leftRear.setPower(-power);
     }
-    public static void halfturn(double power) {
+    public static void halfturnRight(double power) {
         leftFront.setPower(power);
         leftRear.setPower(power);
+    }
+
+    public static void halfturnLeft(double power) {
+        rightFront.setPower(power);
+        rightRear.setPower(power);
     }
 
     public static void encoderForward(double inches) {
@@ -164,7 +169,7 @@ public class Drivetrain {
 
         }
     }
-    public static void encoderHalfTurn(double degrees) {
+    public static void encoderHalfTurnRight(double degrees) {
         int ticks = (int) (((degrees * degreesperinch) / wheelRevolutionDistanceInches) * ticksToWheelRevolution);
 
         leftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -177,7 +182,29 @@ public class Drivetrain {
         leftRear.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
 
-        halfturn(0.5);
+        halfturnRight(0.5);
+
+        while (isMoving() == true) {
+
+//            Telemetry.updateDrivetrainEncoders();
+
+        }
+    }
+
+    public static void encoderHalfTurnLeft(double degrees) {
+        int ticks = (int) (((degrees * degreesperinch) / wheelRevolutionDistanceInches) * ticksToWheelRevolution);
+
+        rightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        rightRear.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        rightFront.setTargetPosition(ticks);
+        rightRear.setTargetPosition(ticks);
+
+        rightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        rightRear.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+
+        halfturnLeft(0.5);
 
         while (isMoving() == true) {
 
