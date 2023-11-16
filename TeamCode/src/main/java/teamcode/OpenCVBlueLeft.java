@@ -4,8 +4,11 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
+
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
@@ -16,8 +19,10 @@ import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 import org.openftc.easyopencv.OpenCvPipeline;
 import org.openftc.easyopencv.OpenCvWebcam;
+
 @Autonomous
 public class OpenCVBlueLeft extends LinearOpMode {
+    DistanceSensor frontSensor;
     OpenCvWebcam webcam1 = null;
     public static DcMotorEx leftFront;
     public static DcMotorEx rightFront;
@@ -31,7 +36,6 @@ public class OpenCVBlueLeft extends LinearOpMode {
     public static Servo wrist;
     private static int value = 0;
 
-
     @Override
     public void runOpMode() throws InterruptedException {
         leftFront = hardwareMap.get(DcMotorEx.class, "leftFront");
@@ -43,6 +47,8 @@ public class OpenCVBlueLeft extends LinearOpMode {
         rightClaw = hardwareMap.get(Servo.class, "rightClaw");
         leftClaw = hardwareMap.get(Servo.class, "leftClaw");
         wrist = hardwareMap.get(Servo.class, "wrist");
+        frontSensor = hardwareMap.get(DistanceSensor.class, "frontSensor");
+
 
 
         Drivetrain.init(leftFront, rightFront, leftRear, rightRear);
@@ -95,7 +101,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             Drivetrain.encoderForward(27);
             Drivetrain.encoderHalfTurnLeft(290);
             sleep(1000);
-            Drivetrain.encoderForward(9.5);
+            Drivetrain.encoderForward(10);
             sleep(500);
             Drivetrain.encoderForward(-10);
             sleep(500);
@@ -196,8 +202,12 @@ public class OpenCVBlueLeft extends LinearOpMode {
             Drivetrain.encoderForward(-10);
             Drivetrain.encoderTurn(420);
             sleep(1000);
-            Drivetrain.encoderForward(60);
+            Drivetrain.encoderForward(50);
             sleep(500);
+            while (distance() > 3) {
+                Drivetrain.encoderForward(1);
+                sleep(1000);
+                 }
             Drivetrain.encoderStrafe(-15);
             Arm.wristMid();
             sleep(1000);
@@ -211,6 +221,8 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
 
         }
+
+        distance();
 
         //Drivetrain.encoderForward(13);
     }
@@ -334,7 +346,17 @@ public class OpenCVBlueLeft extends LinearOpMode {
         }
 
     }
+
+    public double distance()
+    {
+        double Dist = frontSensor.getDistance(DistanceUnit.INCH);
+        telemetry.addData("distance", Dist);
+        telemetry.update();
+        return Dist;
+
+    }
 }
+
 
 
 
