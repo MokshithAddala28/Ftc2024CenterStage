@@ -35,6 +35,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
     public static Servo leftClaw;
     public static Servo wrist;
     private static int value = 0;
+    public static double Dist;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -53,6 +54,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
         Drivetrain.init(leftFront, rightFront, leftRear, rightRear);
         Arm.init(rightRobotArm, leftRobotArm, rightClaw, leftClaw, wrist);
+
 
         Arm.closeClaw();
 
@@ -74,6 +76,10 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
             }
         });
+        distance();
+        telemetry.addData("distance", Dist);
+        telemetry.update();
+
         waitForStart();
 
         if (value == 1) {
@@ -221,11 +227,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
 
         }
-
-        distance();
-
-        //Drivetrain.encoderForward(13);
-    }
+ }
 
     class ExamplePipeline extends OpenCvPipeline {
         //mk
@@ -349,7 +351,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
     public double distance()
     {
-        double Dist = frontSensor.getDistance(DistanceUnit.INCH);
+        Dist = frontSensor.getDistance(DistanceUnit.INCH);
         telemetry.addData("distance", Dist);
         telemetry.update();
         return Dist;
