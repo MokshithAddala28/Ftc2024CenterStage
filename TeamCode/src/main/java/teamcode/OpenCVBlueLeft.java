@@ -77,94 +77,58 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
             }
         });
-        distance();
-        telemetry.addData("distance", Dist);
-        telemetry.update();
 
         waitForStart();
 
         if (value == 1) {
-            /*
-            //code from nov 11 Q2
-            Drivetrain.encoderForward(27);
-            sleep(1000);
-            Drivetrain.encoderTurn(135);
-            sleep(1000);
-            Arm.wristLow();
-            sleep(1000);
 
-            Arm.openClaw();
-            sleep(1000);
-            Arm.wristUp();
-            sleep(1000);
-            Drivetrain.encoderTurn(-135);
-            sleep(1000);
-            Drivetrain.encoderStrafe(70);
-            sleep(1000);
-            Drivetrain.encoderForward(-25);
-            sleep(1000);
-             */
-
-            Drivetrain.encoderForward(27);
+            Drivetrain.encoderForward(25);
             Drivetrain.encoderHalfTurnLeft(290);
             sleep(1000);
-            Drivetrain.encoderForward(10);
+            Drivetrain.encoderForward(3);
             sleep(500);
-            Drivetrain.encoderForward(-10);
+            Drivetrain.encoderForward(-7);
             sleep(500);
             Drivetrain.encoderTurn(135);
             sleep(1000);
-            Drivetrain.encoderForward(57);
+            Drivetrain.encoderForward(45);
             sleep(500);
-            Drivetrain.encoderStrafe(10);
+            Drivetrain.encoderStrafe(15);
+            while (distance() > 5.5) {
+                Drivetrain.encoderForward(3);
+                telemetry.addData("in while loop", distance());
+                telemetry.update();
+            }
             Arm.wristMid();
             sleep(1000);
             Arm.openClaw();
             sleep(1000);
             Arm.wristUp();
             sleep(1000);
-            Drivetrain.encoderForward(-8);
+           Drivetrain.encoderForward(-8);
             sleep(1000);
             Drivetrain.encoderStrafe(20);
+            sleep(1000);
+            Drivetrain.encoderForward(8);
             sleep(1000);
 
 
         } else if (value == 2) {
-          /* working code of Q2 (Nov 11)
-            rightFront.setPower(-0.4);
-            rightRear.setPower(0.4);
-            leftFront.setPower(0.4);
-            leftRear.setPower(-0.4);
-            sleep(250);
-            Drivetrain.encoderForward(36);
-            sleep(1000);
-            Drivetrain.encoderStrafe(10);
-            sleep(500);
-            Arm.wristLow();
-            sleep(1000);
-            Arm.openClaw();
-            sleep(2000);
-            Arm.wristUp();
-            sleep(1000);
-            Drivetrain.encoderStrafe(69);
-            sleep(1000);
-            Drivetrain.encoderForward(-30);
-            sleep(1000); */
-
-
-            /* New Pushing Code */
             rightFront.setPower(-0.2);
             rightRear.setPower(0.2);
             leftFront.setPower(0.2);
             leftRear.setPower(-0.2);
             Drivetrain.encoderForward(41);
             sleep(1000);
-            Drivetrain.encoderStrafe(69);
-            sleep(1000);
             Drivetrain.encoderTurn(270);
             sleep(1000);
-            Drivetrain.encoderStrafe(17);
+            Drivetrain.encoderForward(45);
             sleep(1000);
+            Drivetrain.encoderStrafe(19);
+            sleep(1000);
+            while (distance() > 5.5) {
+                Drivetrain.encoderForward(3);
+            }
             Arm.wristMid();
             sleep(500);
             Arm.openClaw();
@@ -172,41 +136,16 @@ public class OpenCVBlueLeft extends LinearOpMode {
             Arm.wristUp();
             sleep(500);
             Drivetrain.encoderForward(-3);
-            Drivetrain.encoderStrafe(43);
+            Drivetrain.encoderStrafe(35);
             sleep(1000);
-
-
 
         } else if (value == 3) {
-
-            /* working code of Q2 = Nov 11
-            Drivetrain.encoderForward(28);
-            sleep(1000);
-            Drivetrain.encoderTurn(-135);
-            sleep(1000);
-            Arm.wristLow();
-            sleep(1000);
-
-            Arm.openClaw();
-            sleep(1000);
-            Arm.wristUp();
-            sleep(1000);
-            Drivetrain.encoderTurn(135);
-            sleep(1000);
-            Drivetrain.encoderStrafe(75);
-            sleep(1000);
-            Drivetrain.encoderForward(-27.5);
-            sleep(1000);
-
-*/
-            //New Code for pushing pixel
-
 
             Drivetrain.encoderForward(23);
             Drivetrain.encoderHalfTurnRight(290);
             sleep(1000);
-            Drivetrain.encoderForward(5);
-            Drivetrain.encoderForward(-12);
+            //Drivetrain.encoderForward(5);
+            Drivetrain.encoderForward(-7);
             Drivetrain.encoderTurn(420);
             sleep(1000);
 
@@ -318,10 +257,6 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 telemetry.addData("leftavgfin", leftavg.val[0]);
                 telemetry.addData("rightavgfin", rightavg.val[0]);
                 telemetry.addData("value2", value);
-                distance();
-                telemetry.addData("distance", Dist);
-                telemetry.update();
-
 
             }
             else if((leftavgfin > middleavgfin) && (leftavgfin > rightavgfin)){
@@ -334,10 +269,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 telemetry.addData("leftavgfin", leftavg.val[0]);
                 telemetry.addData("rightavgfin", rightavg.val[0]);
                 telemetry.addData("value1", value);
-                distance();
-                telemetry.addData("distance", Dist);
-                telemetry.update();
-            }
+                            }
             else {
                 //if ((rightavgfin > middleavgfin) && (rightavgfin < leftavgfin) && (leftavgfin > middleavgfin)) {
                 // else if((rightavgfin > middleavgfin) && (rightavgfin > leftavgfin)){
@@ -348,9 +280,6 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 telemetry.addData("leftavgfin", leftavg.val[0]);
                 telemetry.addData("rightavgfin", rightavg.val[0]);
                 telemetry.addData("value3", value);
-                distance();
-                telemetry.addData("distance", Dist);
-                telemetry.update();
 
             }
 
@@ -365,8 +294,6 @@ public class OpenCVBlueLeft extends LinearOpMode {
     public double distance()
     {
         Dist = frontSensor.getDistance(DistanceUnit.INCH);
-        telemetry.addData("distance", Dist);
-        telemetry.update();
         return Dist;
 
     }
