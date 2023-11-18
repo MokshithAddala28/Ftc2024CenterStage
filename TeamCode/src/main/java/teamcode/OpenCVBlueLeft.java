@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.opencv.core.Core;
@@ -201,20 +202,25 @@ public class OpenCVBlueLeft extends LinearOpMode {
             //New Code for pushing pixel
 
 
-            Drivetrain.encoderForward(27);
+            Drivetrain.encoderForward(23);
             Drivetrain.encoderHalfTurnRight(290);
             sleep(1000);
-            Drivetrain.encoderForward(7);
-            Drivetrain.encoderForward(-10);
+            Drivetrain.encoderForward(5);
+            Drivetrain.encoderForward(-12);
             Drivetrain.encoderTurn(420);
             sleep(1000);
-            Drivetrain.encoderForward(50);
-            sleep(500);
-            while (distance() > 3) {
-                Drivetrain.encoderForward(1);
-                sleep(1000);
+
+            Drivetrain.encoderForward(45);
+            while (distance() > 5.5) {
+                Drivetrain.encoderForward(3);
+                telemetry.addData("in while loop", distance());
+                telemetry.update();
                  }
-            Drivetrain.encoderStrafe(-15);
+            telemetry.addData("out while loop", distance());
+            telemetry.update();
+
+            Drivetrain.stop();
+            Drivetrain.encoderStrafe(-5);
             Arm.wristMid();
             sleep(1000);
             Arm.openClaw();
@@ -223,9 +229,10 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(-8);
             sleep(1000);
-            Drivetrain.encoderStrafe(30);
+            Drivetrain.encoderStrafe(37);
             sleep(1000);
-
+            Drivetrain.encoderForward(8);
+            sleep(1000);
         }
  }
 
@@ -311,6 +318,8 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 telemetry.addData("leftavgfin", leftavg.val[0]);
                 telemetry.addData("rightavgfin", rightavg.val[0]);
                 telemetry.addData("value2", value);
+                distance();
+                telemetry.addData("distance", Dist);
                 telemetry.update();
 
 
@@ -325,6 +334,8 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 telemetry.addData("leftavgfin", leftavg.val[0]);
                 telemetry.addData("rightavgfin", rightavg.val[0]);
                 telemetry.addData("value1", value);
+                distance();
+                telemetry.addData("distance", Dist);
                 telemetry.update();
             }
             else {
@@ -337,6 +348,8 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 telemetry.addData("leftavgfin", leftavg.val[0]);
                 telemetry.addData("rightavgfin", rightavg.val[0]);
                 telemetry.addData("value3", value);
+                distance();
+                telemetry.addData("distance", Dist);
                 telemetry.update();
 
             }

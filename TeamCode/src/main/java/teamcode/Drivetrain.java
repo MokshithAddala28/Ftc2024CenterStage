@@ -92,7 +92,7 @@ public class Drivetrain {
     }
 
     public static void encoderForward(double inches) {
-        int ticks = (int) (inches / wheelRevolutionDistanceInches) * ticksToWheelRevolution;
+        int ticks = (int) ((inches / wheelRevolutionDistanceInches) * ticksToWheelRevolution);
 
         leftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -117,7 +117,7 @@ public class Drivetrain {
     }
 
     public static void encoderStrafe(double inches) {
-        int ticks = (int) (inches / wheelRevolutionDistanceInches) * ticksToWheelRevolution;
+        int ticks = (int) ((inches / wheelRevolutionDistanceInches) * ticksToWheelRevolution);
 
         leftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
