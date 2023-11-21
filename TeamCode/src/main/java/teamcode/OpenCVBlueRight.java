@@ -82,19 +82,19 @@ public class OpenCVBlueRight extends LinearOpMode {
         if (value == 1) {
 
             Drivetrain.encoderForward(19);
-            Drivetrain.encoderHalfTurnLeft(315);
+            Drivetrain.encoderHalfTurnLeft(305);
             sleep(1000);
             //Drivetrain.encoderForward(5);
             Drivetrain.encoderForward(-7);
-            Drivetrain.encoderTurn(-155);
+            Drivetrain.encoderTurn(-150);
             sleep(1000);
             // Drivetrain.encoderStrafe(7);
-            Drivetrain.encoderForward(47);
+            Drivetrain.encoderForward(43);
             sleep(1000);
             Drivetrain.encoderTurn(280);
             Drivetrain.encoderForward(120);
             sleep(1000);
-            Drivetrain.encoderStrafe(57);
+            Drivetrain.encoderStrafe(55);
             sleep(1000);
             while (distance() > 5.5) {
                 Drivetrain.encoderForward(3);
@@ -108,7 +108,7 @@ public class OpenCVBlueRight extends LinearOpMode {
             Drivetrain.encoderForward(-3);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
-            Drivetrain.encoderStrafe(-40);
+            Drivetrain.encoderStrafe(-35);
             sleep(1000);
             Drivetrain.encoderForward(7);
             sleep(1000);
@@ -180,19 +180,19 @@ public class OpenCVBlueRight extends LinearOpMode {
         } else if (value == 3) {
 
             Drivetrain.encoderForward(20);
-            Drivetrain.encoderHalfTurnRight(305);
+            Drivetrain.encoderHalfTurnRight(315);
             sleep(1000);
             //Drivetrain.encoderForward(5);
             Drivetrain.encoderForward(-7);
             Drivetrain.encoderTurn(150);
             sleep(1000);
            // Drivetrain.encoderStrafe(7);
-            Drivetrain.encoderForward(45);
+            Drivetrain.encoderForward(43);
             sleep(1000);
             Drivetrain.encoderTurn(280);
             Drivetrain.encoderForward(120);
             sleep(1000);
-            Drivetrain.encoderStrafe(47);
+            Drivetrain.encoderStrafe(48);
             sleep(1000);
             while (distance() > 5.5)  {  //the robot has to be closer to the backdrop
                 Drivetrain.encoderForward(3);
