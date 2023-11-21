@@ -81,7 +81,41 @@ public class OpenCVBlueRight extends LinearOpMode {
 
         if (value == 1) {
 
-            Drivetrain.encoderForward(28);
+            Drivetrain.encoderForward(19);
+            Drivetrain.encoderHalfTurnLeft(315);
+            sleep(1000);
+            //Drivetrain.encoderForward(5);
+            Drivetrain.encoderForward(-7);
+            Drivetrain.encoderTurn(-155);
+            sleep(1000);
+            // Drivetrain.encoderStrafe(7);
+            Drivetrain.encoderForward(47);
+            sleep(1000);
+            Drivetrain.encoderTurn(280);
+            Drivetrain.encoderForward(120);
+            sleep(1000);
+            Drivetrain.encoderStrafe(57);
+            sleep(1000);
+            while (distance() > 5.5) {
+                Drivetrain.encoderForward(3);
+            }
+            Arm.wristMid();
+            sleep(500);
+            Arm.openClaw();
+            sleep(500);
+            Arm.wristUp();
+            sleep(500);
+            Drivetrain.encoderForward(-3);
+            //Drivetrain.encoderStrafe(35);
+            //sleep(1000);
+            Drivetrain.encoderStrafe(-40);
+            sleep(1000);
+            Drivetrain.encoderForward(7);
+            sleep(1000);
+
+
+
+/*            Drivetrain.encoderForward(28);
             sleep(1000);
             Drivetrain.encoderTurn(130);
             sleep(1000);
@@ -101,7 +135,7 @@ public class OpenCVBlueRight extends LinearOpMode {
             Drivetrain.encoderForward(-10);
             sleep(1000);
 
-
+*/
         } else if (value == 2) {
             Drivetrain.encoderForward(42);
             sleep(1000);
@@ -121,7 +155,7 @@ public class OpenCVBlueRight extends LinearOpMode {
 
             Drivetrain.encoderForward(40);
             sleep(1000);
-            Drivetrain.encoderTurn(276);
+            Drivetrain.encoderTurn(275); //needs to turn more here (+5 degrees)
             Drivetrain.encoderForward(135);
             sleep(1000);
             Drivetrain.encoderStrafe(68.3);
@@ -146,21 +180,21 @@ public class OpenCVBlueRight extends LinearOpMode {
         } else if (value == 3) {
 
             Drivetrain.encoderForward(20);
-            Drivetrain.encoderHalfTurnRight(315);
+            Drivetrain.encoderHalfTurnRight(305);
             sleep(1000);
             //Drivetrain.encoderForward(5);
             Drivetrain.encoderForward(-7);
-            Drivetrain.encoderTurn(140);
+            Drivetrain.encoderTurn(150);
             sleep(1000);
            // Drivetrain.encoderStrafe(7);
-            Drivetrain.encoderForward(42);
+            Drivetrain.encoderForward(45);
             sleep(1000);
-            Drivetrain.encoderTurn(270);
+            Drivetrain.encoderTurn(280);
             Drivetrain.encoderForward(120);
             sleep(1000);
-            Drivetrain.encoderStrafe(55);
+            Drivetrain.encoderStrafe(47);
             sleep(1000);
-            while (distance() > 5.5) {
+            while (distance() > 5.5)  {  //the robot has to be closer to the backdrop
                 Drivetrain.encoderForward(3);
             }
             Arm.wristMid();
