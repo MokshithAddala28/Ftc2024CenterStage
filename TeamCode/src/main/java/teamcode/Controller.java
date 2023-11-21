@@ -22,13 +22,14 @@ public class Controller extends LinearOpMode {
     public static DcMotorEx rightFront;
     public static DcMotorEx leftRear;
     public static DcMotorEx rightRear;
-    public static DcMotorEx droneLauncher;
     public static DcMotorEx leftRobotArm;
     public static DcMotorEx rightRobotArm;
     public static DcMotorEx armExtender;
     public static Servo rightClaw;
     public static Servo leftClaw;
     public static Servo wrist;
+    public static Servo droneLauncher;
+    public static Servo droneHolder;
     int targetPosition1 = 10;
     int targetPosition2 = 300;
     int targetPosition3 = 480;
@@ -46,13 +47,14 @@ public class Controller extends LinearOpMode {
         rightFront = hardwareMap.get(DcMotorEx.class, "rightFront");
         leftRear = hardwareMap.get(DcMotorEx.class, "leftRear");
         rightRear = hardwareMap.get(DcMotorEx.class, "rightRear");
-        droneLauncher = hardwareMap.get(DcMotorEx.class, "droneLauncher");
         leftRobotArm = hardwareMap.get(DcMotorEx.class, "leftRobotArm");
         rightRobotArm = hardwareMap.get(DcMotorEx.class, "rightRobotArm");
         armExtender = hardwareMap.get(DcMotorEx.class, "armExtender");
         leftRobotArm = hardwareMap.get(DcMotorEx.class, "leftRobotArm");
         rightRobotArm = hardwareMap.get(DcMotorEx.class, "rightRobotArm");
         armExtender = hardwareMap.get(DcMotorEx.class, "armExtender");
+        droneLauncher = hardwareMap.get(Servo.class, "droneLauncher");
+        droneHolder = hardwareMap.get(Servo.class, "droneHolder");
         wrist = hardwareMap.get(Servo.class, "wrist");
         rightClaw = hardwareMap.get(Servo.class, "rightClaw");
         leftClaw = hardwareMap.get(Servo.class, "leftClaw");
@@ -61,10 +63,6 @@ public class Controller extends LinearOpMode {
         leftRobotArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightRobotArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        //leftFront.setDirection(DcMotorEx.Direction.REVERSE);
-        //rightRear.setDirection(DcMotorEx.Direction.REVERSE);
-        //rightFront.setDirection(DcMotorEx.Direction.REVERSE);
-        //leftRear.setDirection(DcMotorEx.Direction.REVERSE);
         leftFront.setDirection(DcMotorEx.Direction.REVERSE);
         rightClaw.setDirection(Servo.Direction.REVERSE);
         wrist.setDirection(Servo.Direction.REVERSE);
@@ -83,9 +81,7 @@ public class Controller extends LinearOpMode {
             rightFront.setPower((-gamepad1.left_stick_y/1.24) + (-gamepad1.right_stick_x/1.24) + (-gamepad1.left_stick_x/1.24));
             leftRear.setPower((-gamepad1.left_stick_y/1.24) + (-gamepad1.right_stick_x/1.24) + (gamepad1.left_stick_x/1.24));
             rightRear.setPower((-gamepad1.left_stick_y/1.24) + (gamepad1.right_stick_x/1.24) + (-gamepad1.left_stick_x/1.24));
-            droneLauncher.setPower(gamepad1.left_trigger);
 
-            droneLauncher.setPower(gamepad1.left_trigger);
 
             if (gamepad2.dpad_right) {
                 rightRobotArm.setTargetPosition(targetPosition2);
@@ -156,6 +152,19 @@ public class Controller extends LinearOpMode {
                 wrist.setPosition(1.2);
             }
 
+            if (gamepad1.circle) {
+                droneHolder.setPosition(1);
+            }
+            else if (gamepad1.right_bumper) {
+                droneHolder.setPosition(0);
+            }
+
+            if (gamepad1.triangle) {
+                droneLauncher.setPosition(0.6);
+            }
+            else if (gamepad1.square) {
+                droneLauncher.setPosition(0);
+            }
 
             telemetry.addData("velocityLeft", leftRobotArm.getVelocity());
             telemetry.addData("positionLeft", leftRobotArm.getCurrentPosition());
