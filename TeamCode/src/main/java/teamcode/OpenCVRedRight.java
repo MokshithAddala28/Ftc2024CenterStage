@@ -3,9 +3,11 @@ package teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
@@ -18,6 +20,8 @@ import org.openftc.easyopencv.OpenCvPipeline;
 import org.openftc.easyopencv.OpenCvWebcam;
 @Autonomous
 public class OpenCVRedRight extends LinearOpMode {
+
+    DistanceSensor frontSensor;
     OpenCvWebcam webcam1 = null;
     public static DcMotorEx leftFront;
     public static DcMotorEx rightFront;
@@ -30,6 +34,7 @@ public class OpenCVRedRight extends LinearOpMode {
     public static Servo leftClaw;
     public static Servo wrist;
     private static int value = 0;
+    public static double Dist;
 
 
     @Override
@@ -43,6 +48,7 @@ public class OpenCVRedRight extends LinearOpMode {
         rightClaw = hardwareMap.get(Servo.class, "rightClaw");
         leftClaw = hardwareMap.get(Servo.class, "leftClaw");
         wrist = hardwareMap.get(Servo.class, "wrist");
+        frontSensor = hardwareMap.get(DistanceSensor.class, "frontSensor");
 
 
         Drivetrain.init(leftFront, rightFront, leftRear, rightRear);
@@ -74,10 +80,36 @@ public class OpenCVRedRight extends LinearOpMode {
         waitForStart();
 
         if (value == 1) {
-            //Drivetrain.encoderStrafe(13);
-
-            //  Drivetrain.encoderStrafe(-22);
-            // sleep(1000);
+            Drivetrain.encoderForward(25);
+            Drivetrain.encoderHalfTurnLeft(290);
+            sleep(1000);
+            Drivetrain.encoderForward(3);
+            sleep(500);
+            Drivetrain.encoderForward(-7);
+            sleep(500);
+            Drivetrain.encoderTurn(-135);
+            sleep(1000);
+            Drivetrain.encoderForward(45);
+            sleep(500);
+            Drivetrain.encoderStrafe(15);
+            while (distance() > 5.5) {
+                Drivetrain.encoderForward(3);
+                telemetry.addData("in while loop", distance());
+                telemetry.update();
+            }
+            Arm.wristMid();
+            sleep(1000);
+            Arm.openClaw();
+            sleep(1000);
+            Arm.wristUp();
+            sleep(1000);
+            Drivetrain.encoderForward(-8);
+            sleep(1000);
+            Drivetrain.encoderStrafe(20);
+            sleep(1000);
+            Drivetrain.encoderForward(8);
+            sleep(1000);
+            /* old code
             Drivetrain.encoderForward(28.5);
             sleep(1000);
             Drivetrain.encoderTurn(130);
@@ -95,9 +127,34 @@ public class OpenCVRedRight extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(-18);
             sleep(1000);
-
+            */
 
         } else if (value == 2) {
+            rightFront.setPower(-0.2);
+            rightRear.setPower(0.2);
+            leftFront.setPower(0.2);
+            leftRear.setPower(-0.2);
+            Drivetrain.encoderForward(41);
+            sleep(1000);
+            Drivetrain.encoderTurn(-270);
+            sleep(1000);
+            Drivetrain.encoderForward(45);
+            sleep(1000);
+            Drivetrain.encoderStrafe(19);
+            sleep(1000);
+            while (distance() > 5.5) {
+                Drivetrain.encoderForward(3);
+            }
+            Arm.wristMid();
+            sleep(500);
+            Arm.openClaw();
+            sleep(500);
+            Arm.wristUp();
+            sleep(500);
+            Drivetrain.encoderForward(-3);
+            Drivetrain.encoderStrafe(35);
+            sleep(1000);
+            /*
             Drivetrain.encoderForward(38.3);
             sleep(1000);
             Drivetrain.encoderStrafe(-10);
@@ -112,12 +169,46 @@ public class OpenCVRedRight extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(-22);
             sleep(1000);
+             */
+
 
 
 
 
         } else if(value == 3) {
+            Drivetrain.encoderForward(23);
+            Drivetrain.encoderHalfTurnRight(290);
+            sleep(1000);
+            //Drivetrain.encoderForward(5);
+            Drivetrain.encoderForward(-7);
+            Drivetrain.encoderTurn(-420);
+            sleep(1000);
+
+            Drivetrain.encoderForward(45);
+            while (distance() > 5.5) {
+                Drivetrain.encoderForward(3);
+                telemetry.addData("in while loop", distance());
+                telemetry.update();
+            }
+            telemetry.addData("out while loop", distance());
+            telemetry.update();
+
+            Drivetrain.stop();
+            Drivetrain.encoderStrafe(-5);
+            Arm.wristMid();
+            sleep(1000);
+            Arm.openClaw();
+            sleep(1000);
+            Arm.wristUp();
+            sleep(1000);
+            Drivetrain.encoderForward(-8);
+            sleep(1000);
+            Drivetrain.encoderStrafe(37);
+            sleep(1000);
+            Drivetrain.encoderForward(8);
+            sleep(1000);
             //Drivetrain.encoderStrafe(-13);
+            /*
             Drivetrain.encoderForward(20);
             sleep(2000);
             Drivetrain.encoderStrafe(-22);
@@ -132,6 +223,7 @@ public class OpenCVRedRight extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(-10);
             sleep(500);
+             */
         }
 
         //Drivetrain.encoderForward(13);
@@ -249,7 +341,10 @@ public class OpenCVRedRight extends LinearOpMode {
             // return(input);
         }
 
+
     }
+
+    
 }
 
 
