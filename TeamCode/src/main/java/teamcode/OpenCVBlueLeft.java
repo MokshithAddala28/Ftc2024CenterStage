@@ -105,7 +105,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
             Arm.wristUp();
             sleep(1000);
-           Drivetrain.encoderForward(-8);
+            Drivetrain.encoderForward(-8);
             sleep(1000);
             Drivetrain.encoderStrafe(20);
             sleep(1000);
@@ -154,7 +154,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 Drivetrain.encoderForward(3);
                 telemetry.addData("in while loop", distance());
                 telemetry.update();
-                 }
+            }
             telemetry.addData("out while loop", distance());
             telemetry.update();
 
@@ -173,7 +173,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             Drivetrain.encoderForward(8);
             sleep(1000);
         }
- }
+    }
 
     class ExamplePipeline extends OpenCvPipeline {
         //mk
@@ -257,6 +257,8 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 telemetry.addData("leftavgfin", leftavg.val[0]);
                 telemetry.addData("rightavgfin", rightavg.val[0]);
                 telemetry.addData("value2", value);
+                telemetry.update();
+
 
             }
             else if((leftavgfin > middleavgfin) && (leftavgfin > rightavgfin)){
@@ -269,7 +271,8 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 telemetry.addData("leftavgfin", leftavg.val[0]);
                 telemetry.addData("rightavgfin", rightavg.val[0]);
                 telemetry.addData("value1", value);
-                            }
+                telemetry.update();
+            }
             else {
                 //if ((rightavgfin > middleavgfin) && (rightavgfin < leftavgfin) && (leftavgfin > middleavgfin)) {
                 // else if((rightavgfin > middleavgfin) && (rightavgfin > leftavgfin)){
@@ -280,6 +283,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 telemetry.addData("leftavgfin", leftavg.val[0]);
                 telemetry.addData("rightavgfin", rightavg.val[0]);
                 telemetry.addData("value3", value);
+                telemetry.update();
 
             }
 
@@ -298,10 +302,3 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
     }
 }
-
-
-
-
-
-
-

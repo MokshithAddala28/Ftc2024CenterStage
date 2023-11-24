@@ -4,8 +4,11 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
+
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
@@ -19,6 +22,8 @@ import org.openftc.easyopencv.OpenCvWebcam;
 @Autonomous
 public class OpenCVRedLeft extends LinearOpMode {
     OpenCvWebcam webcam1 = null;
+    DistanceSensor frontSensor;
+
     public static DcMotorEx leftFront;
     public static DcMotorEx rightFront;
     public static DcMotorEx leftRear;
@@ -30,6 +35,8 @@ public class OpenCVRedLeft extends LinearOpMode {
     public static Servo leftClaw;
     public static Servo wrist;
     private static int value = 0;
+    public static double Dist;
+
 
 
     @Override
@@ -43,6 +50,8 @@ public class OpenCVRedLeft extends LinearOpMode {
         rightClaw = hardwareMap.get(Servo.class, "rightClaw");
         leftClaw = hardwareMap.get(Servo.class, "leftClaw");
         wrist = hardwareMap.get(Servo.class, "wrist");
+        frontSensor = hardwareMap.get(DistanceSensor.class, "frontSensor");
+
 
 
         Drivetrain.init(leftFront, rightFront, leftRear, rightRear);
@@ -78,70 +87,125 @@ public class OpenCVRedLeft extends LinearOpMode {
 
         if (value == 1) {
 
-            Drivetrain.encoderForward(27);
+            Drivetrain.encoderForward(20);
+            Drivetrain.encoderHalfTurnLeft(305);
             sleep(1000);
-            Drivetrain.encoderTurn(135);
+            //Drivetrain.encoderForward(5);
+            Drivetrain.encoderForward(-7);
+            Drivetrain.encoderTurn(-155);
+            sleep(1000);
+            // Drivetrain.encoderStrafe(7);
+            Drivetrain.encoderForward(46);
+            sleep(1000);
+            Drivetrain.encoderTurn(-285);
+            sleep(500);
+            Drivetrain.encoderForward(125);
+            sleep(1000);
+            Drivetrain.encoderStrafe(-46);
+            sleep(1000);
+            while (distance() > 5.5)  {  //the robot has to be closer to the backdrop
+                Drivetrain.encoderForward(3);
+            }
+            Arm.wristMid();
+            sleep(500);
+            Arm.openClaw();
+            sleep(500);
+            Arm.wristUp();
+            sleep(500);
+            Drivetrain.encoderForward(-3);
+            //Drivetrain.encoderStrafe(35);
+            //sleep(1000);
+            Drivetrain.encoderStrafe(32);
+            sleep(1000);
+            Drivetrain.encoderForward(5);
+            sleep(1000);
+
+
+           /* Old Code
+            Drivetrain.encoderForward(23);
+
+            sleep(1000);
+            Drivetrain.encoderTurn(-130);
             sleep(1000);
             Arm.wristLow();
             sleep(1000);
-
             Arm.openClaw();
             sleep(1000);
             Arm.wristUp();
             sleep(1000);
-            Drivetrain.encoderTurn(-135);
+            Drivetrain.encoderTurn(130);
             sleep(1000);
-            Drivetrain.encoderForward(63);
-            sleep(2000);
-            Drivetrain.encoderStrafe(-178);
+            Drivetrain.encoderForward(60);
             sleep(1000);
-
+            Drivetrain.encoderStrafe(170);
+            sleep(1000);  */
 
         } else if (value == 2) {
-            rightFront.setPower(-0.4);
-            rightRear.setPower(0.4);
-            leftFront.setPower(0.4);
-            leftRear.setPower(-0.4);
-            sleep(250);
-            Drivetrain.encoderForward(36);
+            Drivetrain.encoderForward(42);
             sleep(1000);
-            Drivetrain.encoderStrafe(10);
-            sleep(500);
-            Arm.wristLow();
-            sleep(1000);
-            Arm.openClaw();
-            sleep(2000);
-            Arm.wristUp();
+            Drivetrain.encoderForward(-5);
             sleep(1000);
             Drivetrain.encoderStrafe(25);
             sleep(1000);
-            Drivetrain.encoderForward(50);
+            Drivetrain.encoderForward(40);
             sleep(1000);
-            Drivetrain.encoderStrafe(-190);
+            Drivetrain.encoderTurn(-285); //needs to turn more here (+5 degrees)
             sleep(1000);
+            Drivetrain.encoderForward(142);
+            sleep(1000);
+            Drivetrain.encoderStrafe(-64);
+            sleep(1000);
+            while (distance() > 5.55) {
+                Drivetrain.encoderForward(3);
+            }
+            Arm.wristMid();
+            sleep(500);
+            Arm.openClaw();
+            sleep(500);
+            Arm.wristUp();
+            sleep(500);
+            Drivetrain.encoderForward(-3);
+            //Drivetrain.encoderStrafe(35);
+            //sleep(1000);
+            Drivetrain.encoderStrafe(30);
+            Drivetrain.encoderForward(3);
+            //Drivetrain.encoderForward(10);
+            //sleep(1000);
 
 
         } else if (value == 3) {
 
-            Drivetrain.encoderForward(28);
+            Drivetrain.encoderForward(20);
+            Drivetrain.encoderHalfTurnRight(305);
             sleep(1000);
-            Drivetrain.encoderTurn(-135);
+            //Drivetrain.encoderForward(5);
+            Drivetrain.encoderForward(-7);
+            Drivetrain.encoderTurn(155);
             sleep(1000);
-            Arm.wristLow();
+            // Drivetrain.encoderStrafe(7);
+            Drivetrain.encoderForward(47);
             sleep(1000);
-
+            Drivetrain.encoderTurn(-285);
+            Drivetrain.encoderForward(125);
+            sleep(1000);
+            Drivetrain.encoderStrafe(-65);
+            sleep(1000);
+            while (distance() > 5.5) {
+                Drivetrain.encoderForward(3);
+            }
+            Arm.wristMid();
+            sleep(500);
             Arm.openClaw();
-            sleep(1000);
+            sleep(500);
             Arm.wristUp();
+            sleep(500);
+            Drivetrain.encoderForward(-5);
+            //Drivetrain.encoderStrafe(35);
+            //sleep(1000);
+            Drivetrain.encoderStrafe(35);
             sleep(1000);
-            Drivetrain.encoderTurn(135);
+            Drivetrain.encoderForward(7);
             sleep(1000);
-            Drivetrain.encoderForward(62);
-            sleep(2000);
-            Drivetrain.encoderStrafe(-178);
-            sleep(1000);
-
-
         }
     }
 
@@ -293,8 +357,13 @@ public class OpenCVRedLeft extends LinearOpMode {
         }
 
     }
-}
+    public double distance()
+    {
+        Dist = frontSensor.getDistance(DistanceUnit.INCH);
+        return Dist;
 
+    }
+}
 
 
 

@@ -31,7 +31,7 @@ public class Controller extends LinearOpMode {
     public static Servo droneLauncher;
     public static Servo droneHolder;
     int targetPosition1 = 10;
-    int targetPosition2 = 300;
+    int targetPosition2 = 328;
     int targetPosition3 = 480;
     int targetPosition4 = 200;
     int targetPosition5 = 560;
@@ -72,6 +72,7 @@ public class Controller extends LinearOpMode {
         Drivetrain.init(leftFront, rightFront, leftRear, rightRear);
         Arm.init(rightRobotArm, leftRobotArm, rightClaw,leftClaw, wrist);
 
+        droneLauncher.setPosition(0.6);
 
 
         waitForStart();
