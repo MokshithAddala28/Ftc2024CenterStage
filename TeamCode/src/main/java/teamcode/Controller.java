@@ -31,7 +31,7 @@ public class Controller extends LinearOpMode {
     public static Servo droneLauncher;
     public static Servo droneHolder;
     int targetPosition1 = 10;
-    int targetPosition2 = 328;
+    int targetPosition2 = 316;
     int targetPosition3 = 480;
     int targetPosition4 = 200;
     int targetPosition5 = 560;
@@ -78,10 +78,10 @@ public class Controller extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            leftFront.setPower((-gamepad1.left_stick_y/1.24) + (gamepad1.right_stick_x/1.24) + (gamepad1.left_stick_x/1.24));
-            rightFront.setPower((-gamepad1.left_stick_y/1.24) + (-gamepad1.right_stick_x/1.24) + (-gamepad1.left_stick_x/1.24));
-            leftRear.setPower((-gamepad1.left_stick_y/1.24) + (-gamepad1.right_stick_x/1.24) + (gamepad1.left_stick_x/1.24));
-            rightRear.setPower((-gamepad1.left_stick_y/1.24) + (gamepad1.right_stick_x/1.24) + (-gamepad1.left_stick_x/1.24));
+            leftFront.setPower((-gamepad1.left_stick_y/1.215) + (gamepad1.right_stick_x/1.215) + (gamepad1.left_stick_x/1.215));
+            rightFront.setPower((-gamepad1.left_stick_y/1.215) + (-gamepad1.right_stick_x/1.215) + (-gamepad1.left_stick_x/1.215));
+            leftRear.setPower((-gamepad1.left_stick_y/1.215) + (-gamepad1.right_stick_x/1.215) + (gamepad1.left_stick_x/1.215));
+            rightRear.setPower((-gamepad1.left_stick_y/1.215) + (gamepad1.right_stick_x/1.215) + (-gamepad1.left_stick_x/1.215));
 
 
             if (gamepad2.dpad_right) {

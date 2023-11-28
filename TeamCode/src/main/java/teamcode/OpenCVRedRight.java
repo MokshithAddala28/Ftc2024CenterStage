@@ -82,11 +82,11 @@ public class OpenCVRedRight extends LinearOpMode {
 
         if (value == 1) {
             Drivetrain.encoderForward(23);
-            Drivetrain.encoderHalfTurnLeft(290);
+            Drivetrain.encoderHalfTurnLeft(293);
             sleep(1000);
-            //Drivetrain.encoderForward(5);
+            Drivetrain.encoderForward(2);
             Drivetrain.encoderForward(-7);
-            Drivetrain.encoderTurn(-420);
+            Drivetrain.encoderTurn(-423);
             sleep(1000);
 
             Drivetrain.encoderForward(50);
