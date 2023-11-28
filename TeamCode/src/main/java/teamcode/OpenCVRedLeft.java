@@ -101,7 +101,7 @@ public class OpenCVRedLeft extends LinearOpMode {
             sleep(500);
             Drivetrain.encoderForward(125);
             sleep(1000);
-            Drivetrain.encoderStrafe(-46);
+            Drivetrain.encoderStrafe(-48);
             sleep(1000);
             while (distance() > 5.5)  {  //the robot has to be closer to the backdrop
                 Drivetrain.encoderForward(3);
