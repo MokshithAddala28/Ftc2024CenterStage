@@ -91,7 +91,7 @@ public class OpenCVRedLeft extends LinearOpMode {
             Drivetrain.encoderHalfTurnLeft(305);
             sleep(1000);
             //Drivetrain.encoderForward(5);
-            Drivetrain.encoderForward(-7);
+            Drivetrain.encoderForward(-8);
             Drivetrain.encoderTurn(-155);
             sleep(1000);
             // Drivetrain.encoderStrafe(7);
@@ -104,7 +104,7 @@ public class OpenCVRedLeft extends LinearOpMode {
             Drivetrain.encoderStrafe(-48);
             sleep(1000);
             while (distance() > 5.5)  {  //the robot has to be closer to the backdrop
-                Drivetrain.encoderForward(3);
+                Drivetrain.encoderForward(2);
             }
             Arm.wristMid();
             sleep(500);
@@ -115,7 +115,7 @@ public class OpenCVRedLeft extends LinearOpMode {
             Drivetrain.encoderForward(-3);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
-            Drivetrain.encoderStrafe(32);
+            Drivetrain.encoderStrafe(30);
             sleep(1000);
             Drivetrain.encoderForward(5);
             sleep(1000);
@@ -156,7 +156,7 @@ public class OpenCVRedLeft extends LinearOpMode {
             Drivetrain.encoderStrafe(-64);
             sleep(1000);
             while (distance() > 5.55) {
-                Drivetrain.encoderForward(3);
+                Drivetrain.encoderForward(2);
             }
             Arm.wristMid();
             sleep(500);
@@ -177,21 +177,21 @@ public class OpenCVRedLeft extends LinearOpMode {
 
             Drivetrain.encoderForward(20);
             Drivetrain.encoderHalfTurnRight(305);
-            sleep(1000);
+            sleep(800);
             //Drivetrain.encoderForward(5);
             Drivetrain.encoderForward(-7);
             Drivetrain.encoderTurn(155);
-            sleep(1000);
+            sleep(800);
             // Drivetrain.encoderStrafe(7);
             Drivetrain.encoderForward(47);
-            sleep(1000);
+            sleep(800);
             Drivetrain.encoderTurn(-285);
             Drivetrain.encoderForward(125);
-            sleep(1000);
-            Drivetrain.encoderStrafe(-65);
-            sleep(1000);
+            sleep(800);
+            Drivetrain.encoderStrafe(-66);
+            sleep(800);
             while (distance() > 5.5) {
-                Drivetrain.encoderForward(3);
+                Drivetrain.encoderForward(2);
             }
             Arm.wristMid();
             sleep(500);
@@ -202,7 +202,7 @@ public class OpenCVRedLeft extends LinearOpMode {
             Drivetrain.encoderForward(-5);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
-            Drivetrain.encoderStrafe(35);
+            Drivetrain.encoderStrafe(37);
             sleep(1000);
             Drivetrain.encoderForward(7);
             sleep(1000);

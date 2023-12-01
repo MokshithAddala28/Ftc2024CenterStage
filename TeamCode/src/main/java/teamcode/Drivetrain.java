@@ -134,7 +134,7 @@ public class Drivetrain {
         leftRear.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         rightRear.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        strafe(0.75);
+        strafe(0.6);
 
         while (isMoving() == true) {
 //            Telemetry.updateDrivetrainEncoders();

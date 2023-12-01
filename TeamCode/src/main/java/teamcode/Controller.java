@@ -78,10 +78,10 @@ public class Controller extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            leftFront.setPower((-gamepad1.left_stick_y/1.215) + (gamepad1.right_stick_x/1.215) + (gamepad1.left_stick_x/1.215));
-            rightFront.setPower((-gamepad1.left_stick_y/1.215) + (-gamepad1.right_stick_x/1.215) + (-gamepad1.left_stick_x/1.215));
-            leftRear.setPower((-gamepad1.left_stick_y/1.215) + (-gamepad1.right_stick_x/1.215) + (gamepad1.left_stick_x/1.215));
-            rightRear.setPower((-gamepad1.left_stick_y/1.215) + (gamepad1.right_stick_x/1.215) + (-gamepad1.left_stick_x/1.215));
+            leftFront.setPower((-gamepad1.left_stick_y/1.1) + (gamepad1.right_stick_x/1.1) + (gamepad1.left_stick_x/1.1));
+            rightFront.setPower((-gamepad1.left_stick_y/1.1) + (-gamepad1.right_stick_x/1.1) + (-gamepad1.left_stick_x/1.1));
+            leftRear.setPower((-gamepad1.left_stick_y/1.1) + (-gamepad1.right_stick_x/1.1) + (gamepad1.left_stick_x/1.1));
+            rightRear.setPower((-gamepad1.left_stick_y/1.1) + (gamepad1.right_stick_x/1.1) + (-gamepad1.left_stick_x/1.1));
 
 
             if (gamepad2.dpad_right) {
