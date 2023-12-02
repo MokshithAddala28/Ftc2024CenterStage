@@ -99,9 +99,9 @@ public class OpenCVRedLeft extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderTurn(-285);
             sleep(500);
-            Drivetrain.encoderForward(125);
+            Drivetrain.encoderForward(120);
             sleep(1000);
-            Drivetrain.encoderStrafe(-48);
+            Drivetrain.encoderStrafe(-35);
             sleep(1000);
             while (distance() > 5.5)  {  //the robot has to be closer to the backdrop
                 Drivetrain.encoderForward(2);
@@ -149,11 +149,11 @@ public class OpenCVRedLeft extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(40);
             sleep(1000);
-            Drivetrain.encoderTurn(-285); //needs to turn more here (+5 degrees)
+            Drivetrain.encoderTurn(-290); //needs to turn more here (+5 degrees)
             sleep(1000);
             Drivetrain.encoderForward(142);
             sleep(1000);
-            Drivetrain.encoderStrafe(-64);
+            Drivetrain.encoderStrafe(-50);
             sleep(1000);
             while (distance() > 5.55) {
                 Drivetrain.encoderForward(2);
@@ -167,7 +167,7 @@ public class OpenCVRedLeft extends LinearOpMode {
             Drivetrain.encoderForward(-3);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
-            Drivetrain.encoderStrafe(30);
+            Drivetrain.encoderStrafe(32);
             Drivetrain.encoderForward(3);
             //Drivetrain.encoderForward(10);
             //sleep(1000);
@@ -186,9 +186,9 @@ public class OpenCVRedLeft extends LinearOpMode {
             Drivetrain.encoderForward(47);
             sleep(800);
             Drivetrain.encoderTurn(-285);
-            Drivetrain.encoderForward(125);
+            Drivetrain.encoderForward(122);
             sleep(800);
-            Drivetrain.encoderStrafe(-66);
+            Drivetrain.encoderStrafe(-56);
             sleep(800);
             while (distance() > 5.5) {
                 Drivetrain.encoderForward(2);
@@ -202,7 +202,7 @@ public class OpenCVRedLeft extends LinearOpMode {
             Drivetrain.encoderForward(-5);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
-            Drivetrain.encoderStrafe(37);
+            Drivetrain.encoderStrafe(42);
             sleep(1000);
             Drivetrain.encoderForward(7);
             sleep(1000);

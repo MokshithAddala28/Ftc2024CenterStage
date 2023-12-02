@@ -93,7 +93,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(45);
             sleep(500);
-            Drivetrain.encoderStrafe(15);
+            Drivetrain.encoderStrafe(7);
             while (distance() > 5.5) {
                 Drivetrain.encoderForward(1);
                 telemetry.addData("in while loop", distance());
@@ -126,7 +126,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(45);
             sleep(1000);
-            Drivetrain.encoderStrafe(15);
+            Drivetrain.encoderStrafe(3);
             sleep(1000);
             while (distance() > 5.5) {
                 Drivetrain.encoderForward(1);
@@ -161,7 +161,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             telemetry.update();
 
             Drivetrain.stop();
-            Drivetrain.encoderStrafe(-5);
+            Drivetrain.encoderStrafe(-15);
             Arm.wristMid();
             sleep(1000);
             Arm.openClaw();

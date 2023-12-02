@@ -99,7 +99,7 @@ public class OpenCVRedRight extends LinearOpMode {
             telemetry.update();
 
             Drivetrain.stop();
-            Drivetrain.encoderStrafe(5);
+            Drivetrain.encoderStrafe(14);
             Arm.wristMid();
             sleep(1000);
             Arm.openClaw();
@@ -126,7 +126,7 @@ public class OpenCVRedRight extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(50);
             sleep(1000);
-            Drivetrain.encoderStrafe(-10);
+            Drivetrain.encoderStrafe(5);
             sleep(1000);
             while (distance() > 5.5) {
                 Drivetrain.encoderForward(1);
@@ -138,7 +138,9 @@ public class OpenCVRedRight extends LinearOpMode {
             Arm.wristUp();
             sleep(500);
             Drivetrain.encoderForward(-3);
-            Drivetrain.encoderStrafe(-20);
+            Drivetrain.encoderStrafe(-30);
+            sleep(1000);
+            Drivetrain.encoderForward(5);
             sleep(1000);
             /*
             Drivetrain.encoderForward(38.3);
@@ -169,8 +171,8 @@ public class OpenCVRedRight extends LinearOpMode {
             Drivetrain.encoderForward(-7);
             Drivetrain.encoderTurn(-135);
             sleep(1000);
-            Drivetrain.encoderStrafe(-10);
-            sleep(1000);
+            //Drivetrain.encoderStrafe(-3);
+            //sleep(1000);
             Drivetrain.encoderForward(50);
 
             while (distance() > 5.5) {
