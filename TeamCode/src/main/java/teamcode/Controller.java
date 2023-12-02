@@ -37,9 +37,6 @@ public class Controller extends LinearOpMode {
     int targetPosition5 = 560;
 
 
-
-
-
     @Override
     public void runOpMode() throws InterruptedException {
         //28 counts/tics per revolution
@@ -68,9 +65,8 @@ public class Controller extends LinearOpMode {
         wrist.setDirection(Servo.Direction.REVERSE);
 
 
-
         Drivetrain.init(leftFront, rightFront, leftRear, rightRear);
-        Arm.init(rightRobotArm, leftRobotArm, rightClaw,leftClaw, wrist);
+        Arm.init(rightRobotArm, leftRobotArm, rightClaw, leftClaw, wrist);
 
         droneLauncher.setPosition(0.6);
 
@@ -78,10 +74,10 @@ public class Controller extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            leftFront.setPower((-gamepad1.left_stick_y/1.1) + (gamepad1.right_stick_x/1.1) + (gamepad1.left_stick_x/1.1));
-            rightFront.setPower((-gamepad1.left_stick_y/1.1) + (-gamepad1.right_stick_x/1.1) + (-gamepad1.left_stick_x/1.1));
-            leftRear.setPower((-gamepad1.left_stick_y/1.1) + (-gamepad1.right_stick_x/1.1) + (gamepad1.left_stick_x/1.1));
-            rightRear.setPower((-gamepad1.left_stick_y/1.1) + (gamepad1.right_stick_x/1.1) + (-gamepad1.left_stick_x/1.1));
+            leftFront.setPower((-gamepad1.left_stick_y / 1.1) + (gamepad1.right_stick_x / 1.1) + (gamepad1.left_stick_x / 1.1));
+            rightFront.setPower((-gamepad1.left_stick_y / 1.1) + (-gamepad1.right_stick_x / 1.1) + (-gamepad1.left_stick_x / 1.1));
+            leftRear.setPower((-gamepad1.left_stick_y / 1.1) + (-gamepad1.right_stick_x / 1.1) + (gamepad1.left_stick_x / 1.1));
+            rightRear.setPower((-gamepad1.left_stick_y / 1.1) + (gamepad1.right_stick_x / 1.1) + (-gamepad1.left_stick_x / 1.1));
 
 
             if (gamepad2.dpad_right) {
@@ -132,58 +128,63 @@ public class Controller extends LinearOpMode {
             }
 
 
-
-            armExtender.setPower(gamepad2.right_stick_y);
-            if (gamepad2.circle) {
-                leftClaw.setPosition(0);
-            } else if(gamepad2.triangle) {
-                leftClaw.setPosition(0.1);
+            if (gamepad1.dpad_up) {
+                rightFront.setPower(0.3);
+                leftFront.setPower(0.3);
+                rightRear.setPower(0.3);
+                leftRear.setPower(0.3);
+                sleep(160);
+            }
+            if (gamepad1.dpad_down) {
+                rightFront.setPower(-0.3);
+                leftFront.setPower(-0.3);
+                rightRear.setPower(-0.3);
+                leftRear.setPower(-0.3);
+                sleep(110);
             }
 
-            if (gamepad2.circle) {
-                rightClaw.setPosition(0);
-            } else if(gamepad2.triangle) {
-                rightClaw.setPosition(0.3);
+                    armExtender.setPower(gamepad2.right_stick_y);
+                    if (gamepad2.circle) {
+                        leftClaw.setPosition(0);
+                    } else if (gamepad2.triangle) {
+                        leftClaw.setPosition(0.1);
+                    }
+
+                    if (gamepad2.circle) {
+                        rightClaw.setPosition(0);
+                    } else if (gamepad2.triangle) {
+                        rightClaw.setPosition(0.3);
+                    }
+
+                    if (gamepad2.left_bumper) {
+                        wrist.setPosition(0.37);
+                    } else if (gamepad2.right_bumper) {
+                        wrist.setPosition(1.2);
+                    }
+
+                    if (gamepad1.circle) {
+                        droneHolder.setPosition(1);
+                    } else if (gamepad1.right_bumper) {
+                        droneHolder.setPosition(0);
+                    }
+
+                    if (gamepad1.triangle) {
+                        droneLauncher.setPosition(0.6);
+                    } else if (gamepad1.square) {
+                        droneLauncher.setPosition(0);
+                    }
+
+                    telemetry.addData("velocityLeft", leftRobotArm.getVelocity());
+                    telemetry.addData("positionLeft", leftRobotArm.getCurrentPosition());
+                    telemetry.addData("is at targetLeft", !leftRobotArm.isBusy());
+                    telemetry.update();
+
+
+                    //Gamepad1 sticks correlate to different functions, like strafing, turning and going forward.
+                    //Gamepad2 sticks control the arm and the arm extender. The buttons control the claw.
+
+
+                }
+
             }
-
-            if (gamepad2.left_bumper) {
-                wrist.setPosition(0.37);
-            }
-            else if (gamepad2.right_bumper) {
-                wrist.setPosition(1.2);
-            }
-
-            if (gamepad1.circle) {
-                droneHolder.setPosition(1);
-            }
-            else if (gamepad1.right_bumper) {
-                droneHolder.setPosition(0);
-            }
-
-            if (gamepad1.triangle) {
-                droneLauncher.setPosition(0.6);
-            }
-            else if (gamepad1.square) {
-                droneLauncher.setPosition(0);
-            }
-
-            telemetry.addData("velocityLeft", leftRobotArm.getVelocity());
-            telemetry.addData("positionLeft", leftRobotArm.getCurrentPosition());
-            telemetry.addData("is at targetLeft", !leftRobotArm.isBusy());
-            telemetry.update();
-
-
-
-
-
-
-
-            //Gamepad1 sticks correlate to different functions, like strafing, turning and going forward.
-            //Gamepad2 sticks control the arm and the arm extender. The buttons control the claw.
-
-
         }
-
-    }
-}
-
