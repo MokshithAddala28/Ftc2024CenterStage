@@ -94,7 +94,7 @@ public class OpenCVBlueRight extends LinearOpMode {
             Drivetrain.encoderTurn(280);
             Drivetrain.encoderForward(120);
             sleep(1000);
-            Drivetrain.encoderStrafe(57);
+            Drivetrain.encoderStrafe(52);
             sleep(1000);
             while (distance() > 5.5) {
                 Drivetrain.encoderForward(2);
@@ -155,10 +155,10 @@ public class OpenCVBlueRight extends LinearOpMode {
 
             Drivetrain.encoderForward(40);
             sleep(1000);
-            Drivetrain.encoderTurn(275); //needs to turn more here (+5 degrees)
+            Drivetrain.encoderTurn(280); //needs to turn more here (+5 degrees)
             Drivetrain.encoderForward(135);
             sleep(1000);
-            Drivetrain.encoderStrafe(68.3);
+            Drivetrain.encoderStrafe(53);
             sleep(1000);
             while (distance() > 5.55) {
                 Drivetrain.encoderForward(2);
@@ -192,7 +192,7 @@ public class OpenCVBlueRight extends LinearOpMode {
             Drivetrain.encoderTurn(280);
             Drivetrain.encoderForward(120);
             sleep(1000);
-            Drivetrain.encoderStrafe(47);
+            Drivetrain.encoderStrafe(42);
             sleep(1000);
             while (distance() > 5.5)  {  //the robot has to be closer to the backdrop
                 Drivetrain.encoderForward(2);

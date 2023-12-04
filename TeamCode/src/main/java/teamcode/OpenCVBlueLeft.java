@@ -107,7 +107,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(-8);
             sleep(1000);
-            Drivetrain.encoderStrafe(20);
+            Drivetrain.encoderStrafe(25);
             sleep(1000);
             Drivetrain.encoderForward(8);
             sleep(1000);
@@ -170,7 +170,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(1000);
             Drivetrain.encoderForward(-8);
             sleep(1000);
-            Drivetrain.encoderStrafe(37);
+            Drivetrain.encoderStrafe(42);
             sleep(1000);
             Drivetrain.encoderForward(8);
             sleep(1000);
