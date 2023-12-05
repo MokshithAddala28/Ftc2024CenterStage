@@ -84,96 +84,88 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
             Drivetrain.encoderForward(25);
             Drivetrain.encoderHalfTurnLeft(290);
-            sleep(1000);
+            //sleep(500);
             Drivetrain.encoderForward(3);
-            sleep(500);
+            //sleep(500);
             Drivetrain.encoderForward(-7);
-            sleep(500);
+            //sleep(500);
             Drivetrain.encoderTurn(135);
-            sleep(1000);
-            Drivetrain.encoderForward(45);
-            sleep(500);
+            //sleep(500);
+            Drivetrain.encoderForward(51);
+            //sleep(500);
             Drivetrain.encoderStrafe(7);
-            while (distance() > 5.5) {
+            while (distance() > 5) {
                 Drivetrain.encoderForward(1);
-                telemetry.addData("in while loop", distance());
-                telemetry.update();
             }
             Arm.wristMid();
-            sleep(1000);
+            sleep(500);
             Arm.openClaw();
             sleep(1000);
             Arm.wristUp();
-            sleep(1000);
+            sleep(500);
             Drivetrain.encoderForward(-8);
-            sleep(1000);
-            Drivetrain.encoderStrafe(25);
-            sleep(1000);
-            Drivetrain.encoderForward(8);
-            sleep(1000);
+            sleep(500);
+            Drivetrain.encoderStrafe(40);
+            sleep(500);
+            Drivetrain.encoderForward(10);
+            sleep(500);
 
 
         } else if (value == 2) {
-            rightFront.setPower(-0.2);
-            rightRear.setPower(0.2);
-            leftFront.setPower(0.2);
-            leftRear.setPower(-0.2);
+   //         rightFront.setPower(-0.2);
+     //       rightRear.setPower(0.2);
+       //     leftFront.setPower(0.2);
+         //   leftRear.setPower(-0.2);
             Drivetrain.encoderForward(41);
             sleep(1000);
             Drivetrain.encoderForward(-5);
-            sleep(1000);
+            //sleep(1000);
             Drivetrain.encoderTurn(270);
-            sleep(1000);
-            Drivetrain.encoderForward(45);
-            sleep(1000);
-            Drivetrain.encoderStrafe(3);
-            sleep(1000);
-            while (distance() > 5.5) {
+            //sleep(1000);
+            Drivetrain.encoderForward(54);
+            //sleep(1000);
+          //  Drivetrain.encoderStrafe(3);
+            //sleep(1000);
+            while (distance() > 5) {
                 Drivetrain.encoderForward(1);
             }
             Arm.wristMid();
             sleep(500);
             Arm.openClaw();
-            sleep(500);
+            sleep(1000);
             Arm.wristUp();
             sleep(500);
             Drivetrain.encoderForward(-3);
-            Drivetrain.encoderStrafe(32);
+            Drivetrain.encoderStrafe(43);
             sleep(1000);
 
         } else if (value == 3) {
 
             Drivetrain.encoderForward(23);
             Drivetrain.encoderHalfTurnRight(290);
-            sleep(1000);
-            //Drivetrain.encoderForward(5);
-            Drivetrain.encoderForward(-7);
+            //sleep(1000);
+             Drivetrain.encoderForward(-7);
             Drivetrain.encoderTurn(420);
-            sleep(1000);
+            //sleep(1000);
 
-            Drivetrain.encoderForward(45);
-            while (distance() > 5.5) {
+            Drivetrain.encoderForward(50);
+            while (distance() > 5) {
                 Drivetrain.encoderForward(1);
-                telemetry.addData("in while loop", distance());
-                telemetry.update();
             }
-            telemetry.addData("out while loop", distance());
-            telemetry.update();
-
             Drivetrain.stop();
-            Drivetrain.encoderStrafe(-15);
+            Drivetrain.encoderStrafe(-13);
             Arm.wristMid();
-            sleep(1000);
+            sleep(500);
             Arm.openClaw();
             sleep(1000);
             Arm.wristUp();
-            sleep(1000);
+            sleep(500);
             Drivetrain.encoderForward(-8);
-            sleep(1000);
-            Drivetrain.encoderStrafe(42);
-            sleep(1000);
-            Drivetrain.encoderForward(8);
-            sleep(1000);
+            //sleep(1000);
+            Drivetrain.encoderStrafe(50);
+            //sleep(1000);
+            Drivetrain.encoderForward(10);
+            //sleep(1000);
         }
     }
 
