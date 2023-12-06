@@ -10,6 +10,7 @@ public class Arm {
     public static Servo leftClaw;
     public static Servo wrist;
 
+
     public Arm() {
 
     }
@@ -30,6 +31,7 @@ public class Arm {
 
         leftRobotArm.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         rightRobotArm.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+
 
         leftRobotArm.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
         rightRobotArm.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);

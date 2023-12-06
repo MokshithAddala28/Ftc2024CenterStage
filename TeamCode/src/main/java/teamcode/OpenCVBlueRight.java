@@ -2,6 +2,7 @@ package teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
@@ -35,6 +36,7 @@ public class OpenCVBlueRight extends LinearOpMode {
     public static Servo wrist;
     private static int value = 0;
     public static double Dist;
+    int targetPosition1 = 200;
 
 
 
@@ -50,6 +52,10 @@ public class OpenCVBlueRight extends LinearOpMode {
         leftClaw = hardwareMap.get(Servo.class, "leftClaw");
         wrist = hardwareMap.get(Servo.class, "wrist");
         frontSensor = hardwareMap.get(DistanceSensor.class, "frontSensor");
+        leftRobotArm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightRobotArm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftRobotArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        rightRobotArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
 
 
@@ -92,12 +98,18 @@ public class OpenCVBlueRight extends LinearOpMode {
             Drivetrain.encoderForward(47);
             sleep(1000);
             Drivetrain.encoderTurn(280);
-            Drivetrain.encoderForward(120);
-            sleep(1000);
-            Drivetrain.encoderStrafe(52);
-            sleep(1000);
-            while (distance() > 5.5) {
-                Drivetrain.encoderForward(2);
+            Drivetrain.encoderForward(125);
+        //    sleep(1000);
+            Drivetrain.encoderStrafe(48);
+        //    sleep(1000);
+            rightRobotArm.setTargetPosition(targetPosition1);
+            rightRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            leftRobotArm.setTargetPosition(-targetPosition1);
+            leftRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            rightRobotArm.setPower(0.5);
+            leftRobotArm.setPower(-0.5);
+            while (distance() > 5) {
+                Drivetrain.encoderForward(1);
             }
             Arm.wristMid();
             sleep(500);
@@ -108,10 +120,10 @@ public class OpenCVBlueRight extends LinearOpMode {
             Drivetrain.encoderForward(-3);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
-            Drivetrain.encoderStrafe(-40);
-            sleep(1000);
-            Drivetrain.encoderForward(7);
-            sleep(1000);
+            Drivetrain.encoderStrafe(-43);
+          //  sleep(1000);
+            Drivetrain.encoderForward(5);
+           // sleep(1000);
 
 
 
@@ -156,13 +168,20 @@ public class OpenCVBlueRight extends LinearOpMode {
             Drivetrain.encoderForward(40);
             sleep(1000);
             Drivetrain.encoderTurn(280); //needs to turn more here (+5 degrees)
-            Drivetrain.encoderForward(135);
+            Drivetrain.encoderForward(137);
             sleep(1000);
             Drivetrain.encoderStrafe(53);
-            sleep(1000);
-            while (distance() > 5.55) {
-                Drivetrain.encoderForward(2);
+          //  sleep(1000);
+            rightRobotArm.setTargetPosition(targetPosition1);
+            rightRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            leftRobotArm.setTargetPosition(-targetPosition1);
+            leftRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            rightRobotArm.setPower(0.5);
+            leftRobotArm.setPower(-0.5);
+            while (distance() > 5) {
+                Drivetrain.encoderForward(1);
             }
+
             Arm.wristMid();
             sleep(500);
             Arm.openClaw();
@@ -173,7 +192,7 @@ public class OpenCVBlueRight extends LinearOpMode {
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
             Drivetrain.encoderStrafe(-27);
-            sleep(1000);
+            //sleep(1000);
             //Drivetrain.encoderForward(10);
             //sleep(1000);
 
@@ -190,12 +209,18 @@ public class OpenCVBlueRight extends LinearOpMode {
             Drivetrain.encoderForward(45);
             sleep(1000);
             Drivetrain.encoderTurn(280);
-            Drivetrain.encoderForward(120);
-            sleep(1000);
+            Drivetrain.encoderForward(122);
+            sleep(500);
             Drivetrain.encoderStrafe(42);
-            sleep(1000);
-            while (distance() > 5.5)  {  //the robot has to be closer to the backdrop
-                Drivetrain.encoderForward(2);
+        //    sleep(1000);
+            rightRobotArm.setTargetPosition(targetPosition1);
+            rightRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            leftRobotArm.setTargetPosition(-targetPosition1);
+            leftRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            rightRobotArm.setPower(0.5);
+            leftRobotArm.setPower(-0.5);
+            while (distance() > 5)  {  //the robot has to be closer to the backdrop
+                Drivetrain.encoderForward(1);
             }
             Arm.wristMid();
             sleep(500);
@@ -207,9 +232,9 @@ public class OpenCVBlueRight extends LinearOpMode {
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
             Drivetrain.encoderStrafe(-25);
-            sleep(1000);
+            //sleep(1000);
             Drivetrain.encoderForward(7);
-            sleep(1000);
+           // sleep(1000);
 
 
            /* Old Code

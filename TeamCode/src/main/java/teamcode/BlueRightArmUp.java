@@ -8,7 +8,6 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 
 
-import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.opencv.core.Core;
@@ -21,9 +20,8 @@ import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 import org.openftc.easyopencv.OpenCvPipeline;
 import org.openftc.easyopencv.OpenCvWebcam;
-
 @Autonomous
-public class OpenCVBlueLeft extends LinearOpMode {
+public class BlueRightArmUp extends LinearOpMode {
     DistanceSensor frontSensor;
     OpenCvWebcam webcam1 = null;
     public static DcMotorEx leftFront;
@@ -39,6 +37,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
     private static int value = 0;
     public static double Dist;
     int targetPosition1 = 200;
+
 
 
     @Override
@@ -60,10 +59,8 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
 
 
-
         Drivetrain.init(leftFront, rightFront, leftRear, rightRear);
         Arm.init(rightRobotArm, leftRobotArm, rightClaw, leftClaw, wrist);
-
 
         Arm.closeClaw();
 
@@ -90,92 +87,176 @@ public class OpenCVBlueLeft extends LinearOpMode {
 
         if (value == 1) {
 
-            Drivetrain.encoderForward(25);
-            Drivetrain.encoderHalfTurnLeft(290);
-            //sleep(500);
-            Drivetrain.encoderForward(3);
-            //sleep(500);
+            Drivetrain.encoderForward(19);
+            Drivetrain.encoderHalfTurnLeft(315);
+            sleep(1000);
+            //Drivetrain.encoderForward(5);
             Drivetrain.encoderForward(-7);
-            //sleep(500);
-            Drivetrain.encoderTurn(135);
-            //sleep(500);
-            Drivetrain.encoderForward(51);
-            //sleep(500);
-            Drivetrain.encoderStrafe(7);
+            Drivetrain.encoderTurn(-155);
+            sleep(1000);
+            // Drivetrain.encoderStrafe(7);
+            Drivetrain.encoderForward(47);
+            sleep(1000);
+            Drivetrain.encoderTurn(280);
+            Drivetrain.encoderForward(125);
+            //    sleep(1000);
+            Drivetrain.encoderStrafe(48);
+            //    sleep(1000);
+            rightRobotArm.setTargetPosition(targetPosition1);
+            rightRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            leftRobotArm.setTargetPosition(-targetPosition1);
+            leftRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            rightRobotArm.setPower(0.5);
+            leftRobotArm.setPower(-0.5);
             while (distance() > 5) {
                 Drivetrain.encoderForward(1);
             }
             Arm.wristMid();
             sleep(500);
             Arm.openClaw();
-            sleep(1000);
-            Arm.wristUp();
             sleep(500);
-            Drivetrain.encoderForward(-8);
-            sleep(500);
-            Drivetrain.encoderStrafe(40);
-            sleep(500);
-            Drivetrain.encoderForward(10);
-            sleep(500);
-
-
-        } else if (value == 2) {
-   //         rightFront.setPower(-0.2);
-     //       rightRear.setPower(0.2);
-       //     leftFront.setPower(0.2);
-         //   leftRear.setPower(-0.2);
-            Drivetrain.encoderForward(41);
-            sleep(1000);
-            Drivetrain.encoderForward(-5);
-            //sleep(1000);
-            Drivetrain.encoderTurn(270);
-            //sleep(1000);
-            Drivetrain.encoderForward(54);
-          //  Drivetrain.encoderStrafe(3);
-            //sleep(1000);
-
-
-            while (distance() > 5) {
-                Drivetrain.encoderForward(1);
-            }
-            Arm.wristMid();
-            sleep(500);
-            Arm.openClaw();
-            sleep(1000);
             Arm.wristUp();
             sleep(500);
             Drivetrain.encoderForward(-3);
-            Drivetrain.encoderStrafe(43);
+            //Drivetrain.encoderStrafe(35);
+            //sleep(1000);
+            Drivetrain.encoderStrafe(-43);
+            //  sleep(1000);
+            Drivetrain.encoderForward(5);
+            // sleep(1000);
+
+
+
+/*            Drivetrain.encoderForward(28);
+            sleep(1000);
+            Drivetrain.encoderTurn(130);
+            sleep(1000);
+            Arm.wristLow();
             sleep(1000);
 
-        } else if (value == 3) {
+            Arm.openClaw();
+            sleep(500);
+            Arm.wristUp();
+            sleep(500);
+            Drivetrain.encoderTurn(-130);
+            sleep(1000);
+            Drivetrain.encoderForward(64);
+            sleep(1000);
+            Drivetrain.encoderStrafe(165);
+            sleep(1000);
+            Drivetrain.encoderForward(-10);
+            sleep(1000);
 
-            Drivetrain.encoderForward(23);
-            Drivetrain.encoderHalfTurnRight(290);
-            //sleep(1000);
-             Drivetrain.encoderForward(-7);
-            Drivetrain.encoderTurn(420);
+*/
+        } else if (value == 2) {
+            Drivetrain.encoderForward(42);
+            sleep(1000);
+            Drivetrain.encoderForward(-5);
+            sleep(1000);
+            Drivetrain.encoderStrafe(-25);
+            sleep(1000);
+            //Arm.wristLow();
             //sleep(1000);
 
-            Drivetrain.encoderForward(50);
+            //Arm.openClaw();
+            //sleep(500);
+            //Arm.wristUp();
+            //sleep(500);
+            //Drivetrain.encoderStrafe(-20);
+            //sleep(1000);
+
+            Drivetrain.encoderForward(40);
+            sleep(1000);
+            Drivetrain.encoderTurn(280); //needs to turn more here (+5 degrees)
+            Drivetrain.encoderForward(137);
+            sleep(1000);
+            Drivetrain.encoderStrafe(53);
+            //  sleep(1000);
+            rightRobotArm.setTargetPosition(targetPosition1);
+            rightRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            leftRobotArm.setTargetPosition(-targetPosition1);
+            leftRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            rightRobotArm.setPower(0.5);
+            leftRobotArm.setPower(-0.5);
             while (distance() > 5) {
                 Drivetrain.encoderForward(1);
             }
-            Drivetrain.stop();
-            Drivetrain.encoderStrafe(-13);
+
             Arm.wristMid();
             sleep(500);
             Arm.openClaw();
-            sleep(1000);
+            sleep(500);
             Arm.wristUp();
             sleep(500);
-            Drivetrain.encoderForward(-8);
+            Drivetrain.encoderForward(-3);
+            //Drivetrain.encoderStrafe(35);
             //sleep(1000);
-            Drivetrain.encoderStrafe(50);
+            Drivetrain.encoderStrafe(-27);
             //sleep(1000);
-            Drivetrain.encoderForward(10);
+            //Drivetrain.encoderForward(10);
             //sleep(1000);
+
+        } else if (value == 3) {
+
+            Drivetrain.encoderForward(20);
+            Drivetrain.encoderHalfTurnRight(305);
+            sleep(1000);
+            //Drivetrain.encoderForward(5);
+            Drivetrain.encoderForward(-7);
+            Drivetrain.encoderTurn(150);
+            sleep(1000);
+            // Drivetrain.encoderStrafe(7);
+            Drivetrain.encoderForward(45);
+            sleep(1000);
+            Drivetrain.encoderTurn(280);
+            Drivetrain.encoderForward(122);
+            sleep(500);
+            Drivetrain.encoderStrafe(42);
+            //    sleep(1000);
+            rightRobotArm.setTargetPosition(targetPosition1);
+            rightRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            leftRobotArm.setTargetPosition(-targetPosition1);
+            leftRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            rightRobotArm.setPower(0.5);
+            leftRobotArm.setPower(-0.5);
+            while (distance() > 5)  {  //the robot has to be closer to the backdrop
+                Drivetrain.encoderForward(1);
+            }
+            Arm.wristMid();
+            sleep(500);
+            Arm.openClaw();
+            sleep(500);
+            Arm.wristUp();
+            sleep(500);
+            Drivetrain.encoderForward(-3);
+            //Drivetrain.encoderStrafe(35);
+            //sleep(1000);
+            Drivetrain.encoderStrafe(-25);
+            //sleep(1000);
+            Drivetrain.encoderForward(7);
+            // sleep(1000);
+
+
+           /* Old Code
+            Drivetrain.encoderForward(23);
+
+            sleep(1000);
+            Drivetrain.encoderTurn(-130);
+            sleep(1000);
+            Arm.wristLow();
+            sleep(1000);
+            Arm.openClaw();
+            sleep(1000);
+            Arm.wristUp();
+            sleep(1000);
+            Drivetrain.encoderTurn(130);
+            sleep(1000);
+            Drivetrain.encoderForward(60);
+            sleep(1000);
+            Drivetrain.encoderStrafe(170);
+            sleep(1000);  */
         }
+        //Drivetrain.encoderForward(13);
     }
 
     class ExamplePipeline extends OpenCvPipeline {
@@ -216,6 +297,14 @@ public class OpenCVBlueLeft extends LinearOpMode {
             Rect leftRect = new Rect(25, 100, 110, 168); //good
 
 
+/*
+            Rect middleRect = new Rect(190, 25, 245, 220);//good
+            //   Rect rightRect = new Rect(320, 1, 319, 359);
+            //test right
+            Rect rightRect = new Rect(500,70, 120, 190); //good
+            //   Rect leftRect = new Rect(640, 1, 319, 359);
+            Rect leftRect = new Rect(19, 120, 90, 120); //good
+*/
             input.copyTo(outPut);
 
             Imgproc.rectangle(outPut, middleRect, rectColor, 2);
@@ -251,7 +340,8 @@ public class OpenCVBlueLeft extends LinearOpMode {
             //   double max = Math.max(maxOneTwo, rightavgfin);
 
             if ((middleavgfin > rightavgfin) && (middleavgfin > leftavgfin)) {
-                //&&} (rightavgfin >= leftavgfin)) {
+                //&&
+                // } (rightavgfin <= leftavgfin)) {
                 //   if((middleavgfin > leftavgfin) && (middleavgfin > rightavgfin)){
                 //  if(max == middleavgfin){
                 value = 2;
@@ -297,7 +387,6 @@ public class OpenCVBlueLeft extends LinearOpMode {
         }
 
     }
-
     public double distance()
     {
         Dist = frontSensor.getDistance(DistanceUnit.INCH);
