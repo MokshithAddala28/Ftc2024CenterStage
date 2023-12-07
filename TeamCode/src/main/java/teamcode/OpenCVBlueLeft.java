@@ -106,11 +106,11 @@ public class OpenCVBlueLeft extends LinearOpMode {
                 Drivetrain.encoderForward(1);
             }
             Arm.wristMid();
-            sleep(500);
+            sleep(1000);
             Arm.openClaw();
             sleep(1000);
             Arm.wristUp();
-            sleep(500);
+            sleep(1000);
             Drivetrain.encoderForward(-8);
             sleep(500);
             Drivetrain.encoderStrafe(40);
@@ -133,8 +133,6 @@ public class OpenCVBlueLeft extends LinearOpMode {
             Drivetrain.encoderForward(54);
           //  Drivetrain.encoderStrafe(3);
             //sleep(1000);
-
-
             while (distance() > 5) {
                 Drivetrain.encoderForward(1);
             }
@@ -146,7 +144,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             sleep(500);
             Drivetrain.encoderForward(-3);
             Drivetrain.encoderStrafe(43);
-            sleep(1000);
+            //sleep(1000);
 
         } else if (value == 3) {
 
@@ -158,6 +156,7 @@ public class OpenCVBlueLeft extends LinearOpMode {
             //sleep(1000);
 
             Drivetrain.encoderForward(50);
+
             while (distance() > 5) {
                 Drivetrain.encoderForward(1);
             }

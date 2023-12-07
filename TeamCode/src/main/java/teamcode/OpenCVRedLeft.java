@@ -116,15 +116,15 @@ public class OpenCVRedLeft extends LinearOpMode {
             rightRobotArm.setPower(0.5);
             leftRobotArm.setPower(-0.5);
 
-            while (distance() > 5)  {  //the robot has to be closer to the backdrop
+            while (distance() > 4)  {  //the robot has to be closer to the backdrop
                 Drivetrain.encoderForward(1);
             }
             Arm.wristMid();
-            sleep(500);
+            sleep(1000);
             Arm.openClaw();
-            sleep(500);
+            sleep(1000);
             Arm.wristUp();
-            sleep(500);
+            sleep(1000);
             Drivetrain.encoderForward(-3);
             Drivetrain.encoderStrafe(33);
          //   Drivetrain.encoderForward(5);
@@ -172,15 +172,15 @@ public class OpenCVRedLeft extends LinearOpMode {
             rightRobotArm.setPower(0.5);
             leftRobotArm.setPower(-0.5);
 
-            while (distance() > 5) {
+            while (distance() > 4) {
                 Drivetrain.encoderForward(1);
             }
             Arm.wristMid();
-            sleep(500);
+            sleep(1000);
             Arm.openClaw();
-            sleep(500);
+            sleep(1000);
             Arm.wristUp();
-            sleep(500);
+            sleep(1000);
             Drivetrain.encoderForward(-3);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
@@ -214,15 +214,15 @@ public class OpenCVRedLeft extends LinearOpMode {
             rightRobotArm.setPower(0.5);
             leftRobotArm.setPower(-0.5);
 
-            while (distance() > 5) {
+            while (distance() > 4) {
                 Drivetrain.encoderForward(1);
             }
             Arm.wristMid();
-            sleep(500);
+            sleep(1000);
             Arm.openClaw();
-            sleep(500);
+            sleep(1000);
             Arm.wristUp();
-            sleep(500);
+            sleep(1000);
             Drivetrain.encoderForward(-5);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);

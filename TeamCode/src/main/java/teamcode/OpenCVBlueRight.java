@@ -108,15 +108,15 @@ public class OpenCVBlueRight extends LinearOpMode {
             leftRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             rightRobotArm.setPower(0.5);
             leftRobotArm.setPower(-0.5);
-            while (distance() > 5) {
+            while (distance() > 4) {
                 Drivetrain.encoderForward(1);
             }
             Arm.wristMid();
-            sleep(500);
+            sleep(1000);
             Arm.openClaw();
-            sleep(500);
+            sleep(1000);
             Arm.wristUp();
-            sleep(500);
+            sleep(1000);
             Drivetrain.encoderForward(-3);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
@@ -168,26 +168,26 @@ public class OpenCVBlueRight extends LinearOpMode {
             Drivetrain.encoderForward(40);
             sleep(1000);
             Drivetrain.encoderTurn(280); //needs to turn more here (+5 degrees)
-            Drivetrain.encoderForward(137);
+            Drivetrain.encoderForward(142);
             sleep(1000);
             Drivetrain.encoderStrafe(53);
-          //  sleep(1000);
+            sleep(1000);
             rightRobotArm.setTargetPosition(targetPosition1);
             rightRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             leftRobotArm.setTargetPosition(-targetPosition1);
             leftRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             rightRobotArm.setPower(0.5);
             leftRobotArm.setPower(-0.5);
-            while (distance() > 5) {
+            while (distance() > 4) {
                 Drivetrain.encoderForward(1);
             }
 
             Arm.wristMid();
-            sleep(500);
+            sleep(1000);
             Arm.openClaw();
-            sleep(500);
+            sleep(1000);
             Arm.wristUp();
-            sleep(500);
+            sleep(1000);
             Drivetrain.encoderForward(-3);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
@@ -219,15 +219,15 @@ public class OpenCVBlueRight extends LinearOpMode {
             leftRobotArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             rightRobotArm.setPower(0.5);
             leftRobotArm.setPower(-0.5);
-            while (distance() > 5)  {  //the robot has to be closer to the backdrop
+            while (distance() > 4)  {  //the robot has to be closer to the backdrop
                 Drivetrain.encoderForward(1);
             }
             Arm.wristMid();
-            sleep(500);
+            sleep(1000);
             Arm.openClaw();
-            sleep(500);
+            sleep(1000);
             Arm.wristUp();
-            sleep(500);
+            sleep(1000);
             Drivetrain.encoderForward(-3);
             //Drivetrain.encoderStrafe(35);
             //sleep(1000);
